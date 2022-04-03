@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import Link from "next/link";
+
 import Image from "next/image";
 
 import { magic } from "../../lib/magic-client";
@@ -21,7 +21,8 @@ const NavBar = () => {
         setUsername(email);
         setDidToken(didToken);
       }
-    } catch (error) {}
+    } catch (error) {
+    }
   }, []);
 
   const handleOnClickHome = (e) => {
@@ -61,18 +62,17 @@ const NavBar = () => {
   return (
     <div className={styles.container}>
       <div className={styles.wrapper}>
-        <Link href={"/"}>
-          <a className={styles.logoLink}>
-            <div className={styles.logoWrapper}>
-              <Image
-                src={"/static/netflix.svg"}
-                alt="Netflix logo"
-                width="128px"
-                height="34px"
-              />
-            </div>
-          </a>
-        </Link>
+        <a className={styles.logoLink} href="/">
+          <div className={styles.logoWrapper}>
+            <Image
+              src={"/static/netflix.svg"}
+              alt="Netflix logo"
+              width="128px"
+              height="34px"
+            />
+          </div>
+        </a>
+
         <ul className={styles.navItems}>
           <li className={styles.navItem} onClick={handleOnClickHome}>
             Home
@@ -97,9 +97,9 @@ const NavBar = () => {
             {showDropDown && (
               <div className={styles.navDropdown}>
                 <div>
-                  <Link href={"/"} onClick={handleSignout}>
-                    <a className={styles.linkName}>Sign Out</a>
-                  </Link>
+                  <a className={styles.linkName} onClick={handleSignout}>
+                    Sign Out
+                  </a>
                   <div className={styles.lineWrapper}></div>
                 </div>
               </div>
