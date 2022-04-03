@@ -64,7 +64,7 @@ const Video = ({ video }) => {
         setToggleDislike(true);
       }
     }
-  }, []);
+  }, [videoId]);
 
   const runRatingService = async (favorited) => {
     return await fetch("/api/stats", {

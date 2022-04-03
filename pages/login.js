@@ -15,7 +15,7 @@ const Login = () => {
 
   const router = useRouter();
 
-  useEffect( async() => {
+  useEffect(() => {
     const handleComplete = () => {
       setIsLoading(false);
     };

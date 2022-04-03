@@ -9,7 +9,7 @@ function MyApp({ Component, pageProps }) {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
 
-  useEffect( async() => {
+  useEffect(() => {
     const handleComplete = () => {
       setIsLoading(false);
     };
