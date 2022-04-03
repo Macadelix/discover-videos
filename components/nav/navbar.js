@@ -6,6 +6,7 @@ import Image from "next/image";
 import { magic } from "../../lib/magic-client";
 
 import styles from "./navbar.module.css";
+import Link from "next/link";
 
 const NavBar = () => {
   const [showDropDown, setShowDropDown] = useState();
@@ -62,7 +63,6 @@ const NavBar = () => {
   return (
     <div className={styles.container}>
       <div className={styles.wrapper}>
-        <a className={styles.logoLink} href="/">
           <div className={styles.logoWrapper}>
             <Image
               src={"/static/netflix.svg"}
@@ -71,8 +71,6 @@ const NavBar = () => {
               height="34px"
             />
           </div>
-        </a>
-
         <ul className={styles.navItems}>
           <li className={styles.navItem} onClick={handleOnClickHome}>
             Home
