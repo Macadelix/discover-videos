@@ -22,7 +22,6 @@ const NavBar = () => {
         setDidToken(didToken);
       }
     } catch (error) {
-      console.log("error retrieving email", error);
     }
   }, []);
 

@@ -22,7 +22,6 @@ const Card = (props) => {
   };
 
   const handleOnError = () => {
-    console.log("Image not found");
     setImgSrc("/static/inception.webp");
   };
 

@@ -30,7 +30,6 @@ const Login = () => {
 
   const handleOnChangeEmail = (e) => {
     setUserMsg("");
-    // console.log("event", e);
     const email = e.target.value;
     setEmail(email);
   };
@@ -45,7 +44,6 @@ const Login = () => {
         const didToken = await magic.auth.loginWithMagicLink({
           email,
         });
-        console.log({ didToken: didToken });
         if (didToken) {
           const response = await fetch("/api/login", {
             method: "POST",
@@ -57,7 +55,6 @@ const Login = () => {
 
           const loggedInResponse = await response.json();
           if (loggedInResponse.done) {
-            console.log({ loggedInResponse });
             router.push("/");
           } else {
             setIsLoading(false);
