@@ -21,8 +21,7 @@ const NavBar = () => {
         setUsername(email);
         setDidToken(didToken);
       }
-    } catch (error) {
-    }
+    } catch (error) {}
   }, []);
 
   const handleOnClickHome = (e) => {
@@ -62,17 +61,18 @@ const NavBar = () => {
   return (
     <div className={styles.container}>
       <div className={styles.wrapper}>
-        <a className={styles.logoLink} href="/">
-          <div className={styles.logoWrapper}>
-            <Image
-              src={"/static/netflix.svg"}
-              alt="Netflix logo"
-              width="128px"
-              height="34px"
-            />
-          </div>
-        </a>
-
+        <Link href={"/"}>
+          <a className={styles.logoLink}>
+            <div className={styles.logoWrapper}>
+              <Image
+                src={"/static/netflix.svg"}
+                alt="Netflix logo"
+                width="128px"
+                height="34px"
+              />
+            </div>
+          </a>
+        </Link>
         <ul className={styles.navItems}>
           <li className={styles.navItem} onClick={handleOnClickHome}>
             Home
@@ -97,9 +97,9 @@ const NavBar = () => {
             {showDropDown && (
               <div className={styles.navDropdown}>
                 <div>
-                  <a className={styles.linkName} onClick={handleSignout}>
-                    Sign Out
-                  </a>
+                  <Link href={"/"} onClick={handleSignout}>
+                    <a className={styles.linkName}>Sign Out</a>
+                  </Link>
                   <div className={styles.lineWrapper}></div>
                 </div>
               </div>
