@@ -10,7 +10,6 @@ const SectionCards = (props) => {
       <h2 className={styles.title}>{title}</h2>
       <div className={clsx(styles.cardWrapper, shouldWrap && styles.wrap)}>
         {videos.map((video, idx) => {
-          console.log({ video });
           return (
             <Link href={`/video/${video.id}`} key={video.id}>
               <a>
