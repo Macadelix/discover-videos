@@ -50,20 +50,23 @@ const Video = ({ video }) => {
     statistics: { viewCount } = { viewCount: 0 },
   } = video;
 
-  useEffect(async () => {
-    const response = await fetch(`/api/stats?videoId=${videoId}`, {
-      method: "GET",
-    });
-    const data = await response.json();
+  useEffect(() => {
+    async function getSetStats() {
+      const response = await fetch(`/api/stats?videoId=${videoId}`, {
+        method: "GET",
+      });
+      const data = await response.json();
 
-    if (data.length > 0) {
-      const favorited = data[0].favorited;
-      if (favorited === 1) {
-        setToggleLike(true);
-      } else if (favorited === 0) {
-        setToggleDislike(true);
+      if (data.length > 0) {
+        const favorited = data[0].favorited;
+        if (favorited === 1) {
+          setToggleLike(true);
+        } else if (favorited === 0) {
+          setToggleDislike(true);
+        }
       }
     }
+    getSetStats();
   }, [videoId]);
 
   const runRatingService = async (favorited) => {

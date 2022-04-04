@@ -7,6 +7,7 @@ import { magic } from "../lib/magic-client";
 
 import styles from "../styles/Login.module.css";
 import Loading from "../components/loading/loading";
+import Link from "next/link";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -81,7 +82,8 @@ const Login = () => {
 
       <header className={styles.header}>
         <div className={styles.headerWrapper}>
-          <a className={styles.logoLink} href="/">
+          <Link href="/" passHref>
+          <a className={styles.logoLink}>
             <div className={styles.logoWrapper}>
               <Image
                 src={"/static/netflix.svg"}
@@ -91,6 +93,7 @@ const Login = () => {
               />
             </div>
           </a>
+          </Link>
         </div>
       </header>
 
