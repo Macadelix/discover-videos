@@ -10,8 +10,9 @@ const SectionCards = (props) => {
       <h2 className={styles.title}>{title}</h2>
       <div className={clsx(styles.cardWrapper, shouldWrap && styles.wrap)}>
         {videos.map((video, idx) => {
+          let key = video.id + Math.random();
           return (
-            <Link href={`/video/${video.id}`} key={video.id}>
+            <Link href={`/video/${video.id}`} key={key}>
               <a>
                 <Card
                   id={idx}
